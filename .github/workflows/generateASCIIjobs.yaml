@@ -8,6 +8,7 @@ jobs:
         steps:
         - name: Install cowsay program
           run: sudo apt-get install cowsay -y
+
         - name:  Exicute cowsay CMD
           run: cowsay -f dragon "Run for cover, I am a Dragon... RAWR" >> dragon.txt
 
@@ -26,8 +27,8 @@ jobs:
           with:
            name: drogon-text-file
            
-        - name: Install cowsay program
-          run: grep -i "drogon" dragon.txt
+        - name: Check for dragon in file
+          run: grep -i "dragon" dragon.txt
 
     deploy_job_2:
         needs: [test_job_2]
